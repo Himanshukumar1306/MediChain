@@ -4,16 +4,16 @@ const tabs = ['Upcoming', 'Past', 'Cancelled'];
 
 export function BookingTabs({ activeTab, onTabChange }) {
   return (
-    <div className="flex gap-2 mb-6">
+    <div className="flex justify-center gap-12 mb-8">
       {tabs.map((tab) => (
         <button
           key={tab}
           onClick={() => onTabChange(tab)}
           className={clsx(
-            'px-4 py-2 rounded-sm transition-colors flex-1',
+            'px-8 py-2 text-sm font-semibold transition-all duration-200',
             activeTab === tab
-              ? 'bg-[#1abc9c] text-white'
-              : 'hover:bg-gray-100'
+              ? 'bg-emerald-500 text-white rounded-md'
+              : 'text-gray-500 hover:text-gray-800'
           )}
         >
           {tab}
@@ -21,4 +21,4 @@ export function BookingTabs({ activeTab, onTabChange }) {
       ))}
     </div>
   );
-}
+}

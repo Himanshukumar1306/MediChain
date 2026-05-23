@@ -61,7 +61,7 @@ function Dashboard() {
         // Return true only if appointment is in future AND not cancelled
         return appointmentDate > now && appointment.status !== 'cancelled';
       case 'Past':
-        return appointmentDate < now;
+        return appointmentDate < now || appointment.status === 'completed';
       case 'Cancelled':
         return appointment.status === 'cancelled';
       default:
@@ -148,10 +148,24 @@ function Dashboard() {
               )}
             </div>
             {menuOpen && (
-              <div className="absolute right-0 mt-2 w-32 bg-white border rounded-lg shadow-lg">
+              <div className="absolute right-0 mt-2 w-48 bg-white border rounded-lg shadow-lg z-50 p-2">
+                <div className="p-2 border-b text-left">
+                  <p className="text-sm font-medium text-gray-900 truncate">
+                    {currentUser?.displayName || currentUser?.email}
+                  </p>
+                  <p className="text-xs text-gray-500 font-semibold uppercase mt-0.5">
+                    Doctor
+                  </p>
+                </div>
+                <button
+                  onClick={() => { navigate('/dashboard/start'); setMenuOpen(false); }}
+                  className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded"
+                >
+                  Settings
+                </button>
                 <button
                   onClick={handleLogout}
-                  className="w-full text-left px-4 py-2 text-red-600 hover:bg-red-100"
+                  className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 border-t rounded mt-1"
                 >
                   Logout
                 </button>

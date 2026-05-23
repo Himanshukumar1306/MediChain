@@ -10,7 +10,7 @@ import { AuthProvider } from './AuthContext.jsx';
 import LoginPage from './login/login.jsx';
 import PrivateRoute from './PrivateRoute.jsx';
 import NGO from './NGOs/ngo.jsx';
-import Layout from './components/Layout.jsx'; // Import Layout
+import Layout from './components/layout.jsx'; // Import Layout
 import SearchPage from './search/search.jsx';
 import StartPage from './doc-dashboard/start/start.jsx';
 import View from './search/view.jsx';
